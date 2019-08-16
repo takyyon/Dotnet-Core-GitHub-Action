@@ -15,6 +15,7 @@ variables:
 steps:
 - script: |
     dotnet build --configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+    ls $(Build.ArtifactStagingDirectory)
     echo $(buildConfiguration)
     echo "Build complete, showig the directories:"
     ls -R . | awk '
