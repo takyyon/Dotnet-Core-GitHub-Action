@@ -16,6 +16,7 @@ steps:
 - script: |
     dotnet build --configuration $(buildConfiguration)
     echo "Build complete, showig the directories:"
-    ls
+    ls -r
+    echo " working directory:"
     pwd
   displayName: 'dotnet build $(buildConfiguration)'
