@@ -15,7 +15,7 @@ variables:
 steps:
 - script: |
     dotnet build --configuration $(buildConfiguration)
-    echp $(buildConfiguration)
+    echo $(buildConfiguration)
     echo "Build complete, showig the directories:"
     ls -R . | awk '
     /:$/&&f{s=$0;f=0}
