@@ -13,5 +13,9 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: |
+    dotnet build --configuration $(buildConfiguration)
+    echo "Build complete, showig the directories:"
+    ls
+    pwd
   displayName: 'dotnet build $(buildConfiguration)'
