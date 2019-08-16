@@ -16,7 +16,8 @@ steps:
 - script: |
     dotnet build --configuration $(buildConfiguration)
     echo "Build complete, showig the directories:"
-    ls -r
-    echo " working directory:"
-    pwd
+    ls -R . | awk '
+    /:$/&&f{s=$0;f=0}
+    /:$/&&!f{sub(/:$/,"");s=$0;f=1;next}
+    NF&&f{ print s"/"$0 }'
   displayName: 'dotnet build $(buildConfiguration)'
