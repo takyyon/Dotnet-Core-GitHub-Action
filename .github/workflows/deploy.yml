@@ -19,3 +19,5 @@ jobs:
       with:
         app-name: freebergdotnetcore
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
+
+#touch
