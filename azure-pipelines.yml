@@ -13,5 +13,17 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: |
+    dotnet build --configuration $(buildConfiguration) -o $(Build.ArtifactStagingDirectory)
+    ls $(Build.ArtifactStagingDirectory)
+    echo $(buildConfiguration)
+    echo "Build complete, showig the directories:"
+    ls -R . | awk '
+    /:$/&&f{s=$0;f=0}
+    /:$/&&!f{sub(/:$/,"");s=$0;f=1;next}
+    NF&&f{ print s"/"$0 }'
+    echo "---- pwd:"
+    pwd
+    echo "stupid env var:"
+    echo $(System.DefaultWorkingDirectory)
   displayName: 'dotnet build $(buildConfiguration)'
