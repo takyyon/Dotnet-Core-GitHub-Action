@@ -1,0 +1,21 @@
+name: Deploy a DotNet Core app to App Service
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    
+    - name:
+      run: |
+        dotnet publish
+
+    # Deploy the app to App Service (https://github.com/Azure/webapps-deploy)
+    - uses: azure/webapps-deploy@v1
+      with:
+        app-name: freebergdotnetcore
+        publish-profile: ${{ secrets.PUBLISH_PROFILE }}
