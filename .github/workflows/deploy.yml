@@ -1,4 +1,4 @@
-name: Deploy a DotNet Core app to App Service #sdjgfnd
+name: Deploy a DotNet Core app to App Service
 
 on: [push]
 
