@@ -10,14 +10,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     
-    - name:
+    - name: Dotnet build
       run: |
-        dotnet publish
+        dotnet publish -o . -v d
 
     # Deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
       with:
         app-name: freebergdotnetcore
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
-
-#touch
