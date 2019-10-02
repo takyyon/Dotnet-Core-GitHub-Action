@@ -12,7 +12,7 @@ jobs:
     
     - name: Dotnet build
       run: |
-        dotnet publish
+        dotnet publish -o . --configuration release
 
     # Deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
