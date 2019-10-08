@@ -17,11 +17,11 @@ jobs:
     
     - name: Dotnet build
       run: |
-        dotnet publish -o /artifacts --configuration release
+        dotnet publish -o artifacts/ --configuration release
 
     # Deploy the app to App Service (https://github.com/Azure/webapps-deploy)
     - uses: azure/webapps-deploy@v1
       with:
         app-name: freebergdotnetcore
         publish-profile: ${{ secrets.PUBLISH_PROFILE }}
-        package: '/artifacts' 
+        package: 'artifacts/' 
